@@ -9,6 +9,7 @@ public class spawner : MonoBehaviour
     public float rate; public int cap;
     public Vector2 xRange; public Vector2 yRange;
     float counter;
+    public string tagString;
 
     void Start()
     {
@@ -21,7 +22,7 @@ public class spawner : MonoBehaviour
         if (counter > rate)
         {
             counter = 0;
-            if (GameObject.FindGameObjectsWithTag("enemy").Length < cap)
+            if (GameObject.FindGameObjectsWithTag(tagString).Length < cap)
             {
                 float foo = Random.value;
                 if (foo > 0.9f)
@@ -47,7 +48,10 @@ public class spawner : MonoBehaviour
 
                 GameObject obj = Instantiate(spawns[(int)foo], position, Quaternion.identity);
 
-                obj.GetComponent<enemy>().target = player;
+                if (obj.GetComponent<enemy>())
+                {
+                    obj.GetComponent<enemy>().target = player;
+                }
             }
         }
     }

@@ -628,6 +628,7 @@ GameObject:
   - component: {fileID: 607587846}
   - component: {fileID: 607587847}
   - component: {fileID: 607587848}
+  - component: {fileID: 607587849}
   m_Layer: 0
   m_Name: spawner
   m_TagString: Untagged
@@ -670,6 +671,7 @@ MonoBehaviour:
   cap: 10
   xRange: {x: -30, y: 30}
   yRange: {x: -17, y: 17}
+  tagString: enemy
 --- !u!114 &607587848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -684,10 +686,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 949758033}
   spawn: {fileID: 2651932729063725877, guid: 5d48bbb6a449f494ca191ffef3a4d0c7, type: 3}
-  rate: 5
+  rate: 15
   cap: 6
   xRange: {x: -30, y: 30}
   yRange: {x: -17, y: 17}
+--- !u!114 &607587849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 607587845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99b4643273951df4eac233da3666ac98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 949758033}
+  spawns:
+  - {fileID: 6372167933834593844, guid: 490d528e66bca6747955dd336c1b7ca0, type: 3}
+  - {fileID: 6372167933834593844, guid: d54657cbb6308334b9b4bf7871a75b29, type: 3}
+  - {fileID: 6372167933834593844, guid: 9f02cf16b5e4d624dbbaa34d15fa3e9e, type: 3}
+  rate: 6
+  cap: 5
+  xRange: {x: -30, y: 30}
+  yRange: {x: -17, y: 17}
+  tagString: star
 --- !u!1 &949758031
 GameObject:
   m_ObjectHideFlags: 0

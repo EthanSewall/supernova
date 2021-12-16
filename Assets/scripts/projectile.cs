@@ -10,7 +10,10 @@ public class projectile : MonoBehaviour
     {
         if(collision.gameObject.GetComponent<health>())
         {
-            collision.gameObject.GetComponent<health>().TakeDamage(damage);
+            if (!(gameObject.layer == 13 && collision.gameObject.CompareTag("star")))
+            {
+                collision.gameObject.GetComponent<health>().TakeDamage(damage);
+            }
         }
             Destroy(gameObject);
     }
