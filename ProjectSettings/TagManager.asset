@@ -6,7 +6,6 @@ TagManager:
   tags:
   - enemy
   - pickup
-  - star
   layers:
   - Default
   - TransparentFX
@@ -22,7 +21,7 @@ TagManager:
   - pickup
   - enemy
   - enemyprojectile
-  - star
+  - 
   - 
   - 
   - 
