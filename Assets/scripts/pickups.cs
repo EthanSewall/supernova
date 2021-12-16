@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class spawner : MonoBehaviour
+public class pickups : MonoBehaviour
 {
     public Transform player;
-    public GameObject[] spawns;
+    public GameObject spawn;
     public float rate; public int cap;
     public Vector2 xRange; public Vector2 yRange;
     float counter;
@@ -21,22 +21,8 @@ public class spawner : MonoBehaviour
         if (counter > rate)
         {
             counter = 0;
-            if (GameObject.FindGameObjectsWithTag("enemy").Length < cap)
+            if (GameObject.FindGameObjectsWithTag("pickup").Length < cap)
             {
-                float foo = Random.value;
-                if (foo > 0.9f)
-                {
-                    foo = 2;
-                }
-                else if (foo > 0.6f)
-                {
-                    foo = 1;
-                }
-                else
-                {
-                    foo = 0;
-                }
-
                 Vector2 position = new Vector2();
 
                 for (int i = 0; i < 1; i++)
@@ -45,9 +31,7 @@ public class spawner : MonoBehaviour
                     if (Vector2.Distance(position, player.position) < 10) { i--; }
                 }
 
-                GameObject obj = Instantiate(spawns[(int)foo], position, Quaternion.identity);
-
-                obj.GetComponent<enemy>().target = player;
+                Instantiate(spawn, position, Quaternion.identity);
             }
         }
     }
