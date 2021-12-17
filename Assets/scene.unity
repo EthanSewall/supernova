@@ -853,6 +853,7 @@ GameObject:
   - component: {fileID: 607587848}
   - component: {fileID: 607587849}
   - component: {fileID: 607587850}
+  - component: {fileID: 607587851}
   m_Layer: 0
   m_Name: spawner
   m_TagString: Untagged
@@ -953,11 +954,33 @@ MonoBehaviour:
   - {fileID: 8329183543033522232, guid: ed553fe1e48f0e3488258836a7f63f8c, type: 3}
   - {fileID: 8329183543033522232, guid: ed553fe1e48f0e3488258836a7f63f8c, type: 3}
   - {fileID: 8329183543033522232, guid: ed553fe1e48f0e3488258836a7f63f8c, type: 3}
-  rate: 20
+  rate: 6
   cap: 1
   xRange: {x: -30, y: 30}
   yRange: {x: -17, y: 17}
   tagString: blackhole
+--- !u!114 &607587851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 607587845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99b4643273951df4eac233da3666ac98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 949758033}
+  spawns:
+  - {fileID: 8013464816287308972, guid: d3778030234cf3046badef31c3ab71bc, type: 3}
+  - {fileID: 8013464816287308972, guid: d3778030234cf3046badef31c3ab71bc, type: 3}
+  - {fileID: 8013464816287308972, guid: d3778030234cf3046badef31c3ab71bc, type: 3}
+  rate: 6
+  cap: 1
+  xRange: {x: -30, y: 30}
+  yRange: {x: -17, y: 17}
+  tagString: nebula
 --- !u!1 &949758031
 GameObject:
   m_ObjectHideFlags: 0

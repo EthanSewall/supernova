@@ -207,8 +207,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85ce57109601488469c2f95802f7573d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectRadius: 12
+  effectRadius: 9
   force: 8
   layerMask:
     serializedVersion: 2
-    m_Bits: 32310
+    m_Bits: 97846

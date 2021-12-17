@@ -50,6 +50,11 @@ public class spawner : MonoBehaviour
 
                     GameObject obj = Instantiate(spawns[(int)foo], position, Quaternion.identity);
 
+                    if(tagString == "blackhole")
+                    {
+                        obj.transform.Rotate(-90, 0, 0);
+                    }
+
                     if (obj.GetComponent<enemy>())
                     {
                         obj.GetComponent<enemy>().target = player;
