@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8329183542571675731}
   - component: {fileID: 8329183542571675740}
   - component: {fileID: 8329183542571675741}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,9 +107,10 @@ GameObject:
   - component: {fileID: 8329183543033522237}
   - component: {fileID: 8329183543033522238}
   - component: {fileID: 3010975750563394955}
-  m_Layer: 0
+  - component: {fileID: 2012298164939236034}
+  m_Layer: 15
   m_Name: BlackHole
-  m_TagString: Untagged
+  m_TagString: blackhole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -194,3 +195,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1
+--- !u!114 &2012298164939236034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8329183543033522232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85ce57109601488469c2f95802f7573d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectRadius: 12
+  force: 8
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 32310

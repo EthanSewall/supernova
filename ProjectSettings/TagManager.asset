@@ -8,6 +8,7 @@ TagManager:
   - pickup
   - star
   - projectile
+  - blackhole
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - enemy
   - enemyprojectile
   - star
-  - 
+  - hole
   - 
   - 
   - 
