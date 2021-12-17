@@ -61,4 +61,12 @@ public class MainMenu : MonoBehaviour
         ScoreCount.instance.theText.text = "";
         ScoreCount.instance.increase.text = "";
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
 }
