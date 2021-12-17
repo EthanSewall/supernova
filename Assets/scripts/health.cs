@@ -5,9 +5,14 @@ using UnityEngine;
 public class health : MonoBehaviour
 {
     public int maxHP;
-    int currentHP;
+    public int currentHP { get; set; }
 
-    void Start()
+    void Awake()
+    {
+        currentHP = maxHP;
+    }
+
+    public void Begin()
     {
         currentHP = maxHP;
     }

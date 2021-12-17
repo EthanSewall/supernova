@@ -5,7 +5,7 @@ using UnityEngine;
 public class star : MonoBehaviour
 {
     bool goingNova; bool expand; Collider2D[] preAlloc; int amount; float defaultScale;
-    public LayerMask theMask; public float rate; public float maxRadius;
+    public LayerMask theMask; public float rate; public float maxRadius; public int damage;
 
     void Start()
     {
@@ -21,18 +21,19 @@ public class star : MonoBehaviour
             if (expand)
             {
                 transform.localScale *= (1 + Time.deltaTime * rate * maxRadius);
-                if((amount = Physics2D.OverlapCircleNonAlloc(transform.position, transform.localScale.x, preAlloc, theMask)) > 0)
-                {
-                    for(int i = 0; i < amount; i++)
-                    {
-                        if(preAlloc[i].GetComponent<health>())
-                        {
-                            preAlloc[i].GetComponent<health>().TakeDamage(100);
-                        }
-                    }
-                }
+
                 if(transform.localScale.x > maxRadius)
                 {
+                    if ((amount = Physics2D.OverlapCircleNonAlloc(transform.position, transform.localScale.x * 0.85f, preAlloc, theMask)) > 0)
+                    {
+                        for (int i = 0; i < amount; i++)
+                        {
+                            if (preAlloc[i].GetComponent<health>())
+                            {
+                                preAlloc[i].GetComponent<health>().TakeDamage(damage);
+                            }
+                        }
+                    }
                     Destroy(gameObject);
                 }
             }
