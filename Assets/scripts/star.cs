@@ -48,8 +48,9 @@ public class star : MonoBehaviour
         }
     }
 
-    void OnZeroHP()
+    public void OnZeroHP()
     {
+        GetComponent<CircleCollider2D>().enabled = false;
         goingNova = true;
     }
 }

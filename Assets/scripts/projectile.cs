@@ -41,7 +41,7 @@ public class projectile : MonoBehaviour
             GetComponent<BoxCollider2D>().enabled = false;
             rb2d.velocity = Vector2.zero;
             rb2d.AddRelativeForce(-Vector2.up * 0.5f);
-
+            collision.gameObject.BroadcastMessage("ToggleTheShield", null, SendMessageOptions.DontRequireReceiver);
         }
         else
         {
