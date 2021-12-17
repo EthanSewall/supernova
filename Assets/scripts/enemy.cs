@@ -26,6 +26,8 @@ public class enemy : MonoBehaviour
                 delay = 0;
                 GameObject obj = Instantiate(projectile, transform.position, transform.rotation);
                 obj.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.up * projectileVelocity, ForceMode2D.Impulse);
+                obj.GetComponent<Rigidbody2D>().mass = 0.001f;
+                obj.transform.Translate((Random.value - 0.5f) * transform.localScale.x, 0, 0);
             }
 
             counter += Time.deltaTime;

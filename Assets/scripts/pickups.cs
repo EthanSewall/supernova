@@ -17,21 +17,24 @@ public class pickups : MonoBehaviour
 
     void Update()
     {
-        counter += Time.deltaTime;
-        if (counter > rate)
+        if (MainMenu.instance.inGame)
         {
-            counter = 0;
-            if (GameObject.FindGameObjectsWithTag("pickup").Length < cap)
+            counter += Time.deltaTime;
+            if (counter > rate)
             {
-                Vector2 position = new Vector2();
-
-                for (int i = 0; i < 1; i++)
+                counter = 0;
+                if (GameObject.FindGameObjectsWithTag("pickup").Length < cap)
                 {
-                    position = new Vector2(Random.Range(xRange.x, xRange.y), Random.Range(yRange.x, yRange.y));
-                    if (Vector2.Distance(position, player.position) < 10) { i--; }
-                }
+                    Vector2 position = new Vector2();
 
-                Instantiate(spawn, position, Quaternion.identity);
+                    for (int i = 0; i < 1; i++)
+                    {
+                        position = new Vector2(Random.Range(xRange.x, xRange.y), Random.Range(yRange.x, yRange.y));
+                        if (Vector2.Distance(position, player.position) < 10) { i--; }
+                    }
+
+                    Instantiate(spawn, position, Quaternion.identity);
+                }
             }
         }
     }

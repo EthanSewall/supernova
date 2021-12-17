@@ -10,11 +10,14 @@ public class movement : MonoBehaviour
 
     void Update()
     {
-        if(Input.anyKey)
+        if (MainMenu.instance.inGame)
         {
-            if(Mathf.Abs(rb2d.velocity.magnitude) < maxVelocity)
+            if (Input.anyKey)
             {
-                rb2d.AddForce(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")));
+                if (Mathf.Abs(rb2d.velocity.magnitude) < maxVelocity)
+                {
+                    rb2d.AddForce(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")));
+                }
             }
         }
     }

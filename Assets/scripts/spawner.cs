@@ -18,41 +18,45 @@ public class spawner : MonoBehaviour
 
     void Update()
     {
-        counter += Time.deltaTime;
-        if (counter > rate)
+        if (MainMenu.instance.inGame)
         {
-            counter = 0;
-            if (GameObject.FindGameObjectsWithTag(tagString).Length < cap)
+            counter += Time.deltaTime;
+            if (counter > rate)
             {
-                float foo = Random.value;
-                if (foo > 0.9f)
+                counter = 0;
+                if (GameObject.FindGameObjectsWithTag(tagString).Length < cap)
                 {
-                    foo = 2;
-                }
-                else if (foo > 0.6f)
-                {
-                    foo = 1;
-                }
-                else
-                {
-                    foo = 0;
-                }
+                    float foo = Random.value;
+                    if (foo > 0.9f)
+                    {
+                        foo = 2;
+                    }
+                    else if (foo > 0.6f)
+                    {
+                        foo = 1;
+                    }
+                    else
+                    {
+                        foo = 0;
+                    }
 
-                Vector2 position = new Vector2();
+                    Vector2 position = new Vector2();
 
-                for (int i = 0; i < 1; i++)
-                {
-                    position = new Vector2(Random.Range(xRange.x, xRange.y), Random.Range(yRange.x, yRange.y));
-                    if (Vector2.Distance(position, player.position) < 10) { i--; }
-                }
+                    for (int i = 0; i < 1; i++)
+                    {
+                        position = new Vector2(Random.Range(xRange.x, xRange.y), Random.Range(yRange.x, yRange.y));
+                        if (Vector2.Distance(position, player.position) < 10) { i--; }
+                    }
 
-                GameObject obj = Instantiate(spawns[(int)foo], position, Quaternion.identity);
+                    GameObject obj = Instantiate(spawns[(int)foo], position, Quaternion.identity);
 
-                if (obj.GetComponent<enemy>())
-                {
-                    obj.GetComponent<enemy>().target = player;
+                    if (obj.GetComponent<enemy>())
+                    {
+                        obj.GetComponent<enemy>().target = player;
+                    }
                 }
             }
         }
+
     }
 }

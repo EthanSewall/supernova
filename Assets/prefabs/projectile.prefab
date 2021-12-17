@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2359321193369601139}
   - component: {fileID: -5934356149288940836}
   - component: {fileID: 1429994605365289540}
+  - component: {fileID: 8167541601097733423}
   m_Layer: 10
   m_Name: projectile
   m_TagString: Untagged
@@ -113,7 +114,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2651932729063725877}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -144,4 +145,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3752bd5a7def9724c99fc0e4afa1c570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
+  damage: 10
+--- !u!114 &8167541601097733423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2651932729063725877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de5c550b7e3d2f74795dbac10ae0341d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  theTime: 15

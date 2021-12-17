@@ -9,36 +9,44 @@ public class launcher : MonoBehaviour
 
     void Start()
     {
+        Begin();
+    }
+
+    void Update()
+    {
+        if (MainMenu.instance.inGame)
+        {
+            if (counter > rate)
+            {
+                if (Input.GetButtonDown("Fire"))
+                {
+                    if (currentAmmo > 0)
+                    {
+                        GameObject obj = Instantiate(projectile, transform.position, transform.rotation);
+                        obj.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.up * velocity, ForceMode2D.Impulse);
+                        currentAmmo--;
+                        counter = 0;
+                        UpdateAmmo();
+                    }
+                }
+            }
+            else
+            {
+                counter += Time.deltaTime;
+            }
+        }
+    }
+
+    public void Begin()
+    {
         counter = rate + 0.1f;
         currentAmmo = startingAmmo;
         UpdateAmmo();
     }
 
-    void Update()
-    {
-        if(counter > rate)
-        {
-            if(Input.GetButtonDown("Fire"))
-            {
-                if(currentAmmo > 0)
-                {
-                    GameObject obj = Instantiate(projectile, transform.position, transform.rotation);
-                    obj.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.up * velocity, ForceMode2D.Impulse);
-                    currentAmmo--;
-                    counter = 0;
-                    UpdateAmmo();
-                }
-            }
-        }
-        else
-        {
-            counter += Time.deltaTime;
-        }
-    }
-
     void UpdateAmmo()
     {
-        theText.text = currentAmmo.ToString();
+        theText.text = currentAmmo.ToString() + " Ammo";
     }
 
     public void Load(int amount)
