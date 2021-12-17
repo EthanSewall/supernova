@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class healthUI : MonoBehaviour
 {
-    public TextMesh theText; public health theHealth;
+    public SpriteRenderer render; public health theHealth; public Sprite[] sprites;
 
     void Start()
     {
@@ -23,14 +23,9 @@ public class healthUI : MonoBehaviour
 
     void UpdateHealth()
     {
-        if (theHealth.currentHP > 0)
+        if (theHealth.currentHP >= 0)
         {
-            theText.text = "Shields at " + theHealth.currentHP + "%";
-        }
-        else
-        {
-            theText.text = ":(";
-            MainMenu.instance.End();
+            render.sprite = sprites[theHealth.currentHP / 10];
         }
     }
 }

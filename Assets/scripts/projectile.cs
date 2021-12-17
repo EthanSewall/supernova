@@ -10,7 +10,7 @@ public class projectile : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         rb2d.mass = 0.001f;
-        delay = -0.125f;
+        delay = -0.2f;
     }
 
     void Update()
