@@ -10,14 +10,17 @@ public class camera : MonoBehaviour
 
     void Update()
     {
-        Vector3 vect = Vector3.zero;
+        if (MainMenu.instance.inGame)
+        {
+            Vector3 vect = Vector3.zero;
 
-        vect.x = followThis.position.x;
-        vect.x = Mathf.Clamp(vect.x, xRange.x, xRange.y);
-        vect.y = followThis.position.y;
-        vect.y = Mathf.Clamp(vect.y, yRange.x, yRange.y);
-        vect.z = -10;
+            vect.x = followThis.position.x;
+            vect.x = Mathf.Clamp(vect.x, xRange.x, xRange.y);
+            vect.y = followThis.position.y;
+            vect.y = Mathf.Clamp(vect.y, yRange.x, yRange.y);
+            vect.z = -10;
 
-        transform.position = vect;
+            transform.position = vect;
+        }
     }
 }
