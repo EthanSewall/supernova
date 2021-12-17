@@ -27,5 +27,14 @@ public class healthUI : MonoBehaviour
         {
             render.sprite = sprites[theHealth.currentHP / 10];
         }
+        else
+        {
+            render.sprite = sprites[0];
+        }
+    }
+
+    public void OnZeroHP()
+    {
+        MainMenu.instance.End();
     }
 }
