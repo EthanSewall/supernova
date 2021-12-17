@@ -6,10 +6,13 @@ public class enemy : MonoBehaviour
 {
     public Transform target; public float aggroRange; bool aggro = false; float counter = 0; public float speed;
     Vector2 offset; public GameObject projectile; public float fireRate; float delay = 0; public float projectileVelocity;
+    public SpriteRenderer theShield; Color theColor;
 
     void Start()
     {
         offset = new Vector2(Random.Range(-2f, 2f), Random.Range(-2f, 2f));
+        theColor = new Color(0, 1, 1, 0);
+        theShield.color = theColor;
     }
 
     void Update()
@@ -58,10 +61,21 @@ public class enemy : MonoBehaviour
                 }
             }
         }
+
+        if(theColor.a > 0)
+        {
+            theColor.a -= Time.deltaTime;
+            theShield.color = theColor;
+        }
     }
 
     public void OnZeroHP()
     {
         Destroy(gameObject);
+    }
+
+    public void ToggleTheShield()
+    {
+        theColor.a = 1;
     }
 }
