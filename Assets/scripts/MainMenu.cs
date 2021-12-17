@@ -22,6 +22,7 @@ public class MainMenu : MonoBehaviour
             player.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             player.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
             Camera.main.transform.position = new Vector3(0, 0, -10);
+            ScoreCount.instance.Begin();
         }
     }
 
