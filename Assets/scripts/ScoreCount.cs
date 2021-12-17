@@ -5,13 +5,37 @@ using UnityEngine;
 public class ScoreCount : MonoBehaviour
 {
     public static ScoreCount instance; public int score { get; private set; }
-    public TextMesh theText;
+    public TextMesh theText; public TextMesh increase; bool increasing; int increaseAmount; float delay;
 
+    void Awake()
+    {
+        instance = this;
+        increasing = false;
+        theText.text = "";
+        increase.text = "";
+    }
 
     public void Score()
     {
+        increasing = true;
+        delay = 0;
         score++;
+        increaseAmount++;
         updateScore();
+    }
+
+    public void Update()
+    {
+        if(increasing)
+        {
+            delay+= Time.deltaTime;
+            if(delay > 1.5f)
+            {
+                increasing = false;
+                increaseAmount = 0;
+                updateScore();
+            }
+        }
     }
 
     public void Begin()
@@ -36,5 +60,14 @@ public class ScoreCount : MonoBehaviour
         STRING += score.ToString();
 
         theText.text = STRING;
+
+        if(increasing)
+        {
+            increase.text = "+" + increaseAmount.ToString();
+        }
+        else
+        {
+            increase.text = "";
+        }
     }
 }
