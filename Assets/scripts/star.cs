@@ -53,4 +53,12 @@ public class star : MonoBehaviour
         GetComponent<CircleCollider2D>().enabled = false;
         goingNova = true;
     }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.layer == 9)
+        {
+            collision.gameObject.GetComponent<health>().TakeDamage(9999);
+        }
+    }
 }
